@@ -1,8 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
-import { Text, View, TouchableOpacity } from 'react-native';
+import { Text, View, TouchableOpacity, ImageBackground } from 'react-native';
 import { styles } from './src/styles';
 import { useEffect, useState, Fragment } from 'react';
 import { shuffle } from './src/utils';
+//import { ImageBackground } from 'react-native-web';
+//import { TouchableOpacity } from 'react-native-web';
 
 export default function App() {
 
@@ -26,6 +28,11 @@ export default function App() {
 
   return(
     <View style={styles.container}>
+      <ImageBackground 
+        resizeMode='cover'
+        source={require('./src/images/bgImageCounter.jpg')}
+        style={{ flex: 1, backgroundSize: 'cover', width: '100%'}} >
+
       <>
     {!jokes
       ? <Text style={styles.text}>Loading Jokes...</Text>
@@ -45,6 +52,7 @@ export default function App() {
 }   
       </>
       <StatusBar style="auto" />
+      </ImageBackground>
     </View>
     );
 }
